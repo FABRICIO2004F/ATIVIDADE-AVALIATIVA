@@ -1,0 +1,327 @@
+#include <stdio.h>
+#include<math.h>
+
+main(){
+//exxercicio 01//
+
+
+  int X, Y;
+  int soma, raiz;
+
+  printf("digite um valor de x");
+  scanf("%d", &X);
+
+  X = (5 * X) + 3;
+  Y= pow(X, 2);
+  raiz = sqrt(X - 16);
+
+  soma = X / raiz;
+
+  printf("o valor é: %d", soma);
+
+  
+}
+
+#include <stdio.h>
+#include<math.h>
+
+int main() {
+//exxercicio 02//
+    float alturaChico = 150;
+    float alturaZe = 110; 
+    int anos = 0;
+
+    while (alturaZe <= alturaChico) {
+        alturaChico += 2; 
+        alturaZe += 3;  
+        anos++;
+    }
+
+    printf("Serão necessários %d anos para que Zé seja mais alto que Chico.\n", anos);
+
+    return 0;
+}
+
+#include <stdio.h>
+
+
+int main() {
+//exercicio 03//
+    float a, b, c;
+    
+    printf("Digite os valores dos lados do triangulo (A, B, C): ");
+    scanf("%f %f %f", &a, &b, &c);
+    
+    if (a < b + c && b < a + c && c < a + b) {
+        if (a == b && b == c) {
+            printf("Triangulo equilatero\n");
+        } else if (a != b && b != c && c != a) {
+            printf("Triangulo escaleno\n");
+        } else {
+            printf("Triangulo isosceles\n");
+        }
+    } else {
+        printf("Nao e um triangulo valido.\n");
+    }
+    
+    return 0;
+}
+
+#include <stdio.h>
+
+int main() {
+//exercicio 04//
+    float a, b, c;
+    
+    printf("Digite os valores dos lados do triangulo (A, B, C): ");
+    scanf("%f %f %f", &a, &b, &c);
+    
+    if (a < b + c && b < a + c && c < a + b) {
+        if (a * a == b * b + c * c || b * b == a * a + c * c || c * c == a * a + b * b) {
+            printf("Triangulo Retangulo\n");
+        } else if (a * a > b * b + c * c || b * b > a * a + c * c || c * c > a * a + b * b) {
+            printf("Triangulo Obtusangulo\n");
+        } else {
+            printf("Triangulo Acutangulo\n");
+        }
+    } else {
+        printf("Nao e um triangulo valido.\n");
+    }
+    
+    return 0;
+}
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+//exercicio 05//
+
+    double x1, y1, x2, y2, distancia;
+    
+    printf("Digite as coordenadas de p1 (x1 y1): ");
+    scanf("%lf %lf", &x1, &y1);
+    
+    printf("Digite as coordenadas de p2 (x2 y2): ");
+    scanf("%lf %lf", &x2, &y2);
+    
+    distancia = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+    
+    printf("A distancia entre os pontos p1 e p2 e: %.4lf\n", distancia);
+    
+    return 0;
+}
+#include <stdio.h>
+
+
+int main() {
+//exercicio 06//
+    float x, y;
+    
+    printf("Digite as coordenadas do ponto (x y): ");
+    scanf("%f %f", &x, &y);
+    
+    if (x == 0 && y == 0) {
+        printf("Origem\n");
+    } else if (x == 0) {
+        printf("Eixo Y\n");
+    } else if (y == 0) {
+        printf("Eixo X\n");
+    } else {
+        if (x > 0) {
+            if (y > 0) {
+                printf("Q1\n");
+            } else {
+                printf("Q4\n");
+            }
+        } else {
+            if (y > 0) {
+                printf("Q2\n");
+            } else {
+                printf("Q3\n");
+            }
+        }
+    }
+    
+    return 0;
+}
+#include <stdio.h>
+
+int main() {
+//exercicio 07//
+    int numAlunos = 30;
+    double notas[numAlunos];
+    double mediaGeral = 0.0;
+    
+    for (int i = 0; i < numAlunos; i++) {
+        double n1, n2, n3, media;
+        printf("Digite as notas do aluno %d (n1 n2 n3): ", i + 1);
+        scanf("%lf %lf %lf", &n1, &n2, &n3);
+        
+        media = (n1 * 2 + n2 * 4 + n3 * 3) / 10;
+        notas[i] = media;
+        
+        printf("Media do aluno %d: %.2lf\n", i + 1, media);
+        
+        if (media >= 7.0) {
+            printf("Aprovado\n");
+        } else {
+            printf("Reprovado\n");
+        }
+        
+        mediaGeral += media;
+    }
+    
+    mediaGeral /= numAlunos;
+    
+    printf("Media geral da turma: %.2lf\n", mediaGeral);
+    
+    return 0;
+}
+#include <stdio.h>
+
+int main() {
+//exercicio 08//
+    float salario, mediaSalario = 0.0, maiorSalario = 0.0;
+    int numFilhos, totalPessoas = 0, totalSalarioAte100 = 0;
+    
+    do {
+        printf("Digite o salario (ou um valor negativo para encerrar): ");
+        scanf("%f", &salario);
+        
+        if (salario >= 0) {
+            printf("Digite o numero de filhos: ");
+            scanf("%d", &numFilhos);
+            
+            mediaSalario += salario;
+            
+            if (salario <= 100.0) {
+                totalSalarioAte100++;
+            }
+            
+            if (salario > maiorSalario) {
+                maiorSalario = salario;
+            }
+            
+            totalPessoas++;
+        }
+    } while (salario >= 0);
+    
+    if (totalPessoas > 0) {
+        mediaSalario /= totalPessoas;
+        
+        printf("Media do salario da populacao: %.2f\n", mediaSalario);
+        printf("Maior salario: %.2f\n", maiorSalario);
+        printf("Percentual de pessoas com salario ate R$100.00: %.2f%%\n", (float)totalSalarioAte100 / totalPessoas * 100);
+    } else {
+        printf("Nenhum dado foi inserido.\n");
+    }
+    
+    return 0;
+}
+#include <stdio.h>
+
+int main() {
+//exercicio 09//
+    int candidato[4] = {0}; // Inicializa contagem de votos para cada candidato
+    int votosNulos = 0;
+    int votosEmBranco = 0;
+    int codigoVoto;
+    
+    while (1) {
+        printf("Digite o codigo do voto (0 para encerrar): ");
+        scanf("%d", &codigoVoto);
+        
+        if (codigoVoto == 0) {
+            break;
+        }
+        
+        switch (codigoVoto) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                candidato[codigoVoto - 1]++;
+                break;
+            case 5:
+                votosNulos++;
+                break;
+            case 6:
+                votosEmBranco++;
+                break;
+            default:
+                printf("Codigo de voto invalido.\n");
+        }
+    }
+    
+    printf("Total de votos para cada candidato:\n");
+    for (int i = 0; i < 4; i++) {
+        printf("Candidato %d: %d votos\n", i + 1, candidato[i]);
+    }
+    
+    printf("Total de votos nulos: %d\n", votosNulos);
+    printf("Total de votos em branco: %d\n", votosEmBranco);
+    
+    return 0;
+}
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+//exercicio 10//
+    int codigoCidade, numCidades;
+    char estado[3];
+    int veiculos1992, acidentes1992;
+    
+    int maiorIndiceAcidentes = -1, menorIndiceAcidentes = -1;
+    char cidadeMaior[3], cidadeMenor[3];
+    
+    int totalVeiculos = 0;
+    int totalAcidentesRS = 0, numCidadesRS = 0;
+    
+    printf("Digite o numero de cidades: ");
+    scanf("%d", &numCidades);
+    
+    for (int i = 0; i < numCidades; i++) {
+        printf("Cidade %d:\n", i + 1);
+        printf("Codigo da cidade: ");
+        scanf("%d", &codigoCidade);
+        
+        printf("Estado (2 letras): ");
+        scanf("%s", estado);
+        
+        printf("Numero de veiculos de passeio (em 1992): ");
+        scanf("%d", &veiculos1992);
+        
+        printf("Numero de acidentes de transito com vitimas (em 1992): ");
+        scanf("%d", &acidentes1992);
+        
+        if (maiorIndiceAcidentes == -1 || acidentes1992 > maiorIndiceAcidentes) {
+            maiorIndiceAcidentes = acidentes1992;
+            strcpy(cidadeMaior, estado);
+        }
+        
+        if (menorIndiceAcidentes == -1 || acidentes1992 < menorIndiceAcidentes) {
+            menorIndiceAcidentes = acidentes1992;
+            strcpy(cidadeMenor, estado);
+        }
+        
+        totalVeiculos += veiculos1992;
+        
+        if (strcmp(estado, "RS") == 0) {
+            totalAcidentesRS += acidentes1992;
+            numCidadesRS++;
+        }
+    }
+    
+    printf("Maior indice de acidentes: %d (Cidade: %s)\n", maiorIndiceAcidentes, cidadeMaior);
+    printf("Menor indice de acidentes: %d (Cidade: %s)\n", menorIndiceAcidentes, cidadeMenor);
+    printf("Media de veiculos nas cidades brasileiras: %.2f\n", (float)totalVeiculos / numCidades);
+    
+    if (numCidadesRS > 0) {
+        printf("Media de acidentes com vitimas entre as cidades do Rio Grande do Sul: %.2f\n", (float)totalAcidentesRS / numCidadesRS);
+    } else {
+        printf("Nenhuma cidade do Rio Grande do Sul registrada.\n");
+    }
+    
+    return 0;
+}
